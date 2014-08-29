@@ -39,8 +39,3 @@ var ToolBelt = {
 };
 
 
-// Math.floor(Math.random()*(ToolBelt.igor.punDam.length - 0) + 0
-// function kick(x){
-// 	x += 5
-
-// }
