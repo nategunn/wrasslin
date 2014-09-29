@@ -23,6 +23,20 @@ wrestler:[
 {
 	hitPoints: 50,
 	moveset: 1,
+	name: "Monte Hawkins",
+	nickname: "the Bull",
+	finisher: "the Stampede"
+},
+{
+	hitPoints: 50,
+	moveset: 1,
+	name: "Roy Castle",
+	nickname: "the Cooler",
+	finisher: "the Freezer"
+},
+{
+	hitPoints: 50,
+	moveset: 1,
 	name: "Jack Hogan",
 	nickname: "Lightning",
 	finisher: "Electrocutioner"
@@ -32,7 +46,13 @@ wrestler:[
 
 
 currentWrasslerKey: null,
+wrestler1: null,
+nick1: null,
+wrestler2: null,
+nick2: null,
 hp1: null,
+hp2: null,
+
 
 
 handleClick: function(el){
@@ -42,9 +62,24 @@ handleClick: function(el){
 assign: function(){
 	if(this.currentWrasslerKey==null){return;}
 	var x = this.currentWrasslerKey;
-	var i = this.wrestler[x].name;
+	this.wrestler1 = this.wrestler[x].name;
+	this.nick1 = this.wrestler[x].nickname;
 	this.hp1 = this.wrestler[x].hitPoints;
-	
+
+	var y = this.random(0,this.wrestler.length);
+	if(y == x && y > 0)
+	{
+		y -= 1;
+	}else if(y == x && y === 0)
+	{
+		y += 2;
+	}
+	this.wrestler2 = this.wrestler[y].name;
+	this.nick2 = this.wrestler[y].nickname;
+	this.hp2 = this.wrestler[y].hitPoints;
+
+	document.getElementById("commentator").innerHTML = "Tonight's matchup features " + "\'" + this.nick1 + "\' " + this.wrestler1 + " against " + "\'" + this.nick2 + "\' " + this.wrestler2 + "!";
+
 },
 
 attack: function(){
@@ -63,8 +98,8 @@ attack: function(){
 	var dam = this.moves[rand][1];
 	this.hp1 -= dam;
 
-	document.getElementById("commentator").innerHTML = string;
-	document.getElementById("lif").innerHTML = this.hp1;
+	//document.getElementById("commentator").innerHTML = string;
+	//document.getElementById("lif").innerHTML = this.hp1;
 },
 
 random: function(max, min){
