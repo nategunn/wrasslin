@@ -65,15 +65,15 @@ assign: function(){
 	this.wrestler1 = this.wrestler[x].name;
 	this.nick1 = this.wrestler[x].nickname;
 	this.hp1 = this.wrestler[x].hitPoints;
-
+	this.wrestler.splice(x,1);
 	var y = this.random(0,this.wrestler.length);
-	if(y == x && y > 0)
-	{
-		y -= 1;
-	}else if(y == x && y === 0)
-	{
-		y += 2;
-	}
+	// if(y == x && y > 0)
+	// {
+	// 	y -= 1;
+	// }else if(y == x && y === 0)
+	// {
+	// 	y += 2;
+	// }
 	this.wrestler2 = this.wrestler[y].name;
 	this.nick2 = this.wrestler[y].nickname;
 	this.hp2 = this.wrestler[y].hitPoints;
